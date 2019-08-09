@@ -1,5 +1,7 @@
 package com.hcl.service;
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,18 @@ public class PolicyServiceImpl implements IPolicyService {
 		 policyRepository.save(policy);
 		 return policyDto;
 		
+	}
+
+	@Override
+	public List<String> allPolicy() {
+		
+		return policyRepository.findPolicyName();
+	}
+
+	@Override
+	public Policy getPolicyByName(String name) {
+		
+		return policyRepository.findByName(name);
 	}
 
 }
